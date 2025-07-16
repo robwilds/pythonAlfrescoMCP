@@ -17,12 +17,13 @@ def read_csv_summary(filename: str) -> str:
     return f"CSV file '{filename}' has {len(df)} rows and {len(df.columns)} columns."
 def read_parquet_summary(filename: str) -> str:
     """
-    Read a Parquet file and return a simple summary.
+    Read a Parquet file and return a detailed summary including column information.
     Args:
         filename: Name of the Parquet file (e.g. 'sample.parquet')
     Returns:
-        A string describing the file's contents.
+        A string describing the file's contents including column names and types.
     """
     file_path = DATA_DIR / filename
     df = pd.read_parquet(file_path)
-    return f"Parquet file '{filename}' has {len(df)} rows and {len(df.columns)} columns."
+    columns_info = [f"\n- {col} ({df[col].dtype})" for col in df.columns]
+    return f"Parquet file '{filename}' has {len(df)} rows and {len(df.columns)} columns:{' '.join(columns_info)}"
