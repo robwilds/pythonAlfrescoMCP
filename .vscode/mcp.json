@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "wildsMCP_server": {
+      "type": "stdio",
+      "command": "python3",
+      "args": ["/users/robert.wilds/downloads/git/pythonmcp/main.py"]
+    }
+  }
+}
