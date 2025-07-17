@@ -9,5 +9,5 @@ import tools.alfrescoAPI
 # Entry point to run the server
 if __name__ == "__main__":
     
-    mcp.run()
+    mcp.run(transport="sse")
     #print('main server running');

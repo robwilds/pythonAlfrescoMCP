@@ -1,14 +1,8 @@
 {
   "servers": {
-    "wildsMCP_server": {
-      "type": "stdio",
-      "command": "python3",
-      "args": ["/users/robert.wilds/downloads/git/pythonmcp/main.py"],
-      "env": {
-        "BASE_URL": "http://localhost:8080",
-        "user": "admin",
-        "pass": "admin"
-      }
+    "wildsMCPHTTP_server": {
+      "type": "sse",
+      "url": "http://localhost:8000/sse"
     }
   }
 }

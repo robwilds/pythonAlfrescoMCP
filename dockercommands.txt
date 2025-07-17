@@ -1,0 +1,10 @@
+docker buildx build --load --platform=linux/amd64,linux/arm64 -t wildsdocker/wildsalfmcp:v1 .
+
+docker compose up -d
+
+# run without connect to files
+docker run -d -it -p 8000:8000 \
+--name wildsalfmcp \
+wildsdocker/wildsalfmcp:v1
+
+docker push wildsdocker/wildsalfmcp:v1

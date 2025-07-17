@@ -5,7 +5,7 @@ import requests,json
 from server import mcp
 from datetime import datetime,timezone
 from zoneinfo import ZoneInfo
-from tools.queryAlfAPI import runQuery
+from utils.queryAlfAPI import runQuery
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -20,7 +20,6 @@ appEntryID = []
 appEntryDetails = []
 appEntryDate = []
 appEntryUser = []
-
 
 cols = {0: 'nodeID',1:'auditEntryID',2:'entryDate',3:'details',4:'user'}
 
@@ -56,31 +55,7 @@ def getAuditApps() -> str:
     print(temp4)
     return temp4
 
-def pullAuditEntryForNode(nodeid):
 
-    auditEntryforNodeQuery = BASE_URL + '/alfresco/api/-default-/public/alfresco/versions/1/nodes/'+nodeid+'/audit-entries'
-
-    print ('query url is: ' + auditEntryforNodeQuery + ' with userpass: '+ user+passwd) #debug
-    data=runQuery('get',auditEntryforNodeQuery,'',user,passwd)
-    print ("data from nodequery returned is: " + json.dumps(data)) #debug
-    return data
-
-def pullAuditEntryDetailsForNode(auditentryid):
-
-    auditEntryDetailsForNodeQuery = BASE_URL + '/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries/'+str(auditentryid)+''
-
-    data=runQuery('get',auditEntryDetailsForNodeQuery,'',user,passwd)
-
-    print('data from entry detailsfornode: '+ json.dumps(data))
-
-    #See if the actual action data can be returned
-    actionDetailsForNode = data['entry']['values']['/alfresco-access/transaction/action'] #
-    #actionDetailsForNode = data['entry']['values']['/alfresco-access/transaction/sub-actions']
-    actionUserForNode = data['entry']['values']['/alfresco-access/transaction/user']
-
-    return [actionDetailsForNode,actionUserForNode]
-
-def dateProcessor(date):
 
     date_format = "%Y-%m-%dT%H:%M:%S.%f+0000"
     local_tz = ZoneInfo("America/New_York")
@@ -99,7 +74,7 @@ def auditForNode(nodeid):
     Args:
         nodeid: The ID of the node to retrieve audit entries for.
     Returns:
-        A DataFrame containing the audit entries for the specified node.
+        Markdown containing the audit entries for the specified node.
     """
     #now clear the temp arrays now!
     nodeID = []
@@ -131,4 +106,39 @@ def auditForNode(nodeid):
     print (auditentryfornodeDF)
     auditentryfornodeDF.to_excel('auditentryfornode.xlsx')
 
-    return auditentryfornodeDF
+    return auditentryfornodeDF.to_markdown()
+
+def pullAuditEntryForNode(nodeid):
+
+    auditEntryforNodeQuery = BASE_URL + '/alfresco/api/-default-/public/alfresco/versions/1/nodes/'+nodeid+'/audit-entries'
+
+    print ('query url is: ' + auditEntryforNodeQuery + ' with userpass: '+ user+passwd) #debug
+    data=runQuery('get',auditEntryforNodeQuery,'',user,passwd)
+    print ("data from nodequery returned is: " + json.dumps(data)) #debug
+    return data
+
+def pullAuditEntryDetailsForNode(auditentryid):
+
+    auditEntryDetailsForNodeQuery = BASE_URL + '/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/alfresco-access/audit-entries/'+str(auditentryid)+''
+
+    data=runQuery('get',auditEntryDetailsForNodeQuery,'',user,passwd)
+
+    print('data from entry detailsfornode: '+ json.dumps(data))
+
+    #See if the actual action data can be returned
+    actionDetailsForNode = data['entry']['values']['/alfresco-access/transaction/action'] #
+    #actionDetailsForNode = data['entry']['values']['/alfresco-access/transaction/sub-actions']
+    actionUserForNode = data['entry']['values']['/alfresco-access/transaction/user']
+
+    return [actionDetailsForNode,actionUserForNode]
+
+def dateProcessor(date):
+    date_format = "%Y-%m-%dT%H:%M:%S.%f+0000"
+    local_tz = ZoneInfo("America/New_York")
+    
+    newDate = datetime.strptime(date,date_format)
+    #print ('inside dateprocessor: '+str(newDate)) #debug
+
+    print('local time zone '+ str(newDate.astimezone(local_tz)))
+
+    return str(newDate.astimezone(local_tz))

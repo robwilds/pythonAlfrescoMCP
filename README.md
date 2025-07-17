@@ -11,4 +11,8 @@ Once you open coPilot, be sure to select Agent and the LLM you'd like to use. I 
 
 You should see an option to restart as a new mcp server json is found.
 
-I will list the different endpoints you can call later
+# Tools you can use
+
+1. audit information based on nodeid
+2. comments for a node based on nodeid
+3. the audit apps that are configured

@@ -3,4 +3,4 @@
 from mcp.server.fastmcp import FastMCP
 # This is the shared MCP server instance
 
-mcp = FastMCP("wildsMCP_server")
+mcp = FastMCP("wildsMCPHTTP_server")

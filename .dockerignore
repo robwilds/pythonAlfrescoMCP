@@ -1,0 +1,35 @@
+# Python-specific exclusions
+**/__pycache__
+**/*.pyc
+**/.venv
+**/venv/
+**/env/
+**/.env
+
+# Version control and editor-specific files
+.git/
+.gitignore
+.dockerignore
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local build artifacts and temporary files
+**/build/
+**/dist/
+**/*.egg-info/
+**/__init__.pyc
+**/pip-log.txt
+**/tmp/
+**/temp/
+
+# Documentation and testing related files (if not needed in the image)
+docs/
+tests/
+test/
+
+# Other common exclusions
+LICENSE
+README.md
+docker-compose.yml
