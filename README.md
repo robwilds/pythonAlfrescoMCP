@@ -26,7 +26,11 @@ If you are using Claude desktop, add the following to the claude config file (vi
 }
 ```
 
-note: 1) npx needs to be installed and 2) You may have to check permissions on the npm folder: sudo chown -R 501:20 "/Users/<yourusername>/.npm"
+note
+
+1. npx needs to be installed and
+2. You may have to check permissions on the npm folder: sudo chown -R 501:20 "/Users/<yourusername>/.npm"
+3. The url to the mcp server (mcp-remote) can be changed to match your IP or wherever the mcp service is running
 
 There's a docker compose yml with environment variables set. be sure to change the BASE_URL to match your alfresco endpoint
 
