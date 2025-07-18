@@ -24,13 +24,33 @@ appEntryUser = []
 cols = {0: 'nodeID',1:'auditEntryID',2:'entryDate',3:'details',4:'user'}
 
 @mcp.tool()
+def getFiles(filename: str) -> str:
+    """
+    Get files from Alfresco.
+    Args:
+        filename: The name of the file to retrieve.
+    Returns:
+        A JSON string containing the file details.
+    """
+
+    url = os.getenv("BASE_URL") + "/alfresco/api/-default-/public/search/versions/1/search"
+    #print('this is the url: '+url); 
+    data = f"""{{"query": 
+{{"query": "{filename}",
+ "language": "afts"}}}}"""
+    temp = requests.post(url,data=data,auth = (os.getenv("user"), os.getenv("pass"))).text
+    print(temp)
+    return temp
+
+
+@mcp.tool()
 def getComments(nodeid: str) -> str:
     """
     Get comments for a node in Alfresco.
     Args:
         nodeid: The ID of the node to retrieve comments for.
     Returns:
-        A JSON string containing the comments for the specified node.
+        A JSON string containing the comments for the specified node. Multiple files may be returned in a json array.
     """
 
     url = os.getenv("BASE_URL") + "/alfresco/api/-default-/public/alfresco/versions/1/nodes/"+nodeid+"/comments"
