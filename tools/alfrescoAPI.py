@@ -124,7 +124,7 @@ def auditForNode(nodeid):
     auditentryfornodeDF.rename(columns=cols,inplace=True)
 
     print (auditentryfornodeDF)
-    auditentryfornodeDF.to_excel('auditentryfornode.xlsx')
+    #auditentryfornodeDF.to_excel('auditentryfornode.xlsx')
 
     return auditentryfornodeDF.to_markdown()
 
@@ -132,9 +132,9 @@ def pullAuditEntryForNode(nodeid):
 
     auditEntryforNodeQuery = BASE_URL + '/alfresco/api/-default-/public/alfresco/versions/1/nodes/'+nodeid+'/audit-entries'
 
-    print ('query url is: ' + auditEntryforNodeQuery + ' with userpass: '+ user+passwd) #debug
+    #print ('query url is: ' + auditEntryforNodeQuery + ' with userpass: '+ user+passwd) #debug
     data=runQuery('get',auditEntryforNodeQuery,'',user,passwd)
-    print ("data from nodequery returned is: " + json.dumps(data)) #debug
+    #print ("data from nodequery returned is: " + json.dumps(data)) #debug
     return data
 
 def pullAuditEntryDetailsForNode(auditentryid):

@@ -1,8 +1,8 @@
-# main.py
 from server import mcp
 
 # Import tools so they get registered via decorators
 import tools.alfrescoAPI
+
 
 # Entry point to run the server
 if __name__ == "__main__":
