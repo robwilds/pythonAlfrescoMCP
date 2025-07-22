@@ -42,6 +42,23 @@ def getFiles(filename: str) -> str:
     print(temp)
     return temp
 
+@mcp.tool()
+def getTags(nodeid: str):
+    """
+    Get tags for a node in Alfresco.
+    Args:
+        nodeid: The ID of the node to retrieve tags for.
+    Returns:
+        A JSON string containing the tags for the specified node. Multiple tags may be returned in a json array.  the tag field container the english value of the tag.
+    """
+
+    print('inside of gettags')
+
+    url = os.getenv("BASE_URL") + "/alfresco/api/-default-/public/alfresco/versions/1/nodes/"+nodeid+"/tags"
+    #print('this is the url: '+url); 
+    temp3 = requests.get(url,auth = (os.getenv("user"), os.getenv("pass"))).text
+    print(temp3)
+    return temp3
 
 @mcp.tool()
 def getComments(nodeid: str) -> str:
