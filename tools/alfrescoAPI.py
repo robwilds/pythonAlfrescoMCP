@@ -145,6 +145,22 @@ def auditForNode(nodeid):
 
     return auditentryfornodeDF.to_markdown()
 
+@mcp.tool()
+def getAlfrescoVersion():
+    """
+    Find the current version of Alfresco Server.
+    Args:
+        none
+    Returns:
+        Markdown containing the version of Alfresco Server.
+    """
+    url = os.getenv("BASE_URL") + "/alfresco/service/api/server"
+    response = runQuery('get', url, '', os.getenv("user"), os.getenv("pass"))
+
+    print("\nAlfresco System Information:")
+    print(json.dumps(response, indent=2))
+    return json.dumps(response, indent=2)
+
 def pullAuditEntryForNode(nodeid):
 
     auditEntryforNodeQuery = BASE_URL + '/alfresco/api/-default-/public/alfresco/versions/1/nodes/'+nodeid+'/audit-entries'
