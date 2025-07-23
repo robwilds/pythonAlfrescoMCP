@@ -47,7 +47,7 @@ Once your chat interface is setup you can ask away
 
 There's a docker compose yml with environment variables set. be sure to change the BASE_URL to match your alfresco endpoint
 
-If you would like to have a fully built yaml that includes alfresco community, use this link: https://github.com/robwilds/community25.1/tree/main
+If you would like to have a fully built yaml that includes alfresco community, use this link: https://github.com/robwilds/community25.x
 
 Clone the entire repo then run docker compose up -d
 
