@@ -58,3 +58,4 @@ Clone the entire repo then run docker compose up -d
 3. the audit apps that are configured
 4. fetch document info by name...this will return nodeid
 5. current alfresco version
+6. get tag information for a document based on nodeid
