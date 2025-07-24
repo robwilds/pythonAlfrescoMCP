@@ -24,6 +24,22 @@ appEntryUser = []
 cols = {0: 'nodeID',1:'auditEntryID',2:'entryDate',3:'details',4:'user'}
 
 @mcp.tool()
+def getAlfrescoVersion():
+    """
+    Find the current version of Alfresco Server.
+    Args:
+        none
+    Returns:
+        Markdown containing the version of Alfresco Server.
+    """
+    url = os.getenv("BASE_URL") + "/alfresco/service/api/server"
+    response = runQuery('get', url, '', os.getenv("user"), os.getenv("pass"))
+
+    print("\nAlfresco System Information:")
+    print(json.dumps(response, indent=2))
+    return json.dumps(response, indent=2)
+
+@mcp.tool()
 def getFiles(filename: str) -> str:
     """
     Get files from Alfresco.
@@ -146,26 +162,25 @@ def auditForNode(nodeid):
     return auditentryfornodeDF.to_markdown()
 
 @mcp.tool()
-def getAlfrescoVersion():
+def auditInfo(auditApp:str):
     """
-    Find the current version of Alfresco Server.
+    Get all audit info based on the audit application id
     Args:
-        none
+        auditApp: The ID of the audit application to retrieve audit information for
     Returns:
-        Markdown containing the version of Alfresco Server.
+        A JSON string containing the audit information for the specific audit app
     """
-    url = os.getenv("BASE_URL") + "/alfresco/service/api/server"
-    response = runQuery('get', url, '', os.getenv("user"), os.getenv("pass"))
 
-    print("\nAlfresco System Information:")
-    print(json.dumps(response, indent=2))
-    return json.dumps(response, indent=2)
+    url = os.getenv("BASE_URL") + f"/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{auditApp}/audit-entries?skipCount=0&omitTotalItems=false&orderBy=createdAt%20desc&maxItems=100"
+    print('this is the url: '+url); 
+    temp4 = requests.get(url,auth = (os.getenv("user"), os.getenv("pass"))).text
+    return temp4
 
 def pullAuditEntryForNode(nodeid):
 
     auditEntryforNodeQuery = BASE_URL + '/alfresco/api/-default-/public/alfresco/versions/1/nodes/'+nodeid+'/audit-entries'
 
-    #print ('query url is: ' + auditEntryforNodeQuery + ' with userpass: '+ user+passwd) #debug
+    #print ('query url is: ' + auditEntryforNodeQuery) #debug
     data=runQuery('get',auditEntryforNodeQuery,'',user,passwd)
     #print ("data from nodequery returned is: " + json.dumps(data)) #debug
     return data
