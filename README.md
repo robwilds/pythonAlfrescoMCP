@@ -10,7 +10,9 @@ This project was created using this guide: https://medium.com/data-engineering-w
 
 ### be sure node and npm are installed. I used node 20.18.3 and npm 10.8.2
 
-Running pip3 install -r requirements.txt will get the modules installed.
+Running pip3 install -r requirements.txt will get the required sister modules installed.
+
+use the .envtemplate file to create a .env file.  The BASE_URL is the url to your Alfresco install.
 
 Now run with python3 main.py. You will see a confirmation that the MCP server is running.
 
