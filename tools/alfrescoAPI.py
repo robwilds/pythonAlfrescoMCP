@@ -171,7 +171,7 @@ def auditInfo(auditApp:str):
         A JSON string containing the audit information for the specific audit app
     """
 
-    url = os.getenv("BASE_URL") + f"/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{auditApp}/audit-entries?skipCount=0&omitTotalItems=false&orderBy=createdAt%20desc&maxItems=100"
+    url = os.getenv("BASE_URL") + f"/alfresco/api/-default-/public/alfresco/versions/1/audit-applications/{auditApp}/audit-entries?skipCount=0&omitTotalItems=false&orderBy=createdAt%20desc&maxItems=20&include=values"
     print('this is the url: '+url); 
     temp4 = requests.get(url,auth = (os.getenv("user"), os.getenv("pass"))).text
     return temp4
