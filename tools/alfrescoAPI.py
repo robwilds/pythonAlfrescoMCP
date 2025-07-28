@@ -166,7 +166,7 @@ def auditInfo(auditApp:str):
     """
     Get all audit info based on the audit application id
     Args:
-        auditApp: The ID of the audit application to retrieve audit information for
+        auditApp: The ID of the audit application to retrieve audit information for.  Alfresco-access is the most common audit app id
     Returns:
         A JSON string containing the audit information for the specific audit app
     """
