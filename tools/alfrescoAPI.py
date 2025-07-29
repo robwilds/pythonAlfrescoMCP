@@ -44,7 +44,7 @@ def getFiles(filename: str) -> str:
     """
     Get files from Alfresco.
     Args:
-        filename: The name of the file to retrieve.
+        filename: The name of the file to retrieve. wildscards can be passed.
     Returns:
         A JSON string containing the file details.
     """
@@ -54,6 +54,8 @@ def getFiles(filename: str) -> str:
     data = f"""{{"query": 
 {{"query": "{filename}",
  "language": "afts"}}}}"""
+    
+    print ('the query for getFiles is: '+data)
     temp = requests.post(url,data=data,auth = (os.getenv("user"), os.getenv("pass"))).text
     print(temp)
     return temp
