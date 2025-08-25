@@ -24,7 +24,7 @@ appEntryUser = []
 cols = {0: 'nodeID',1:'auditEntryID',2:'entryDate',3:'details',4:'user'}
 
 @mcp.tool()
-def addTagtoNode(nodeid,tag):
+def addTagtoNode(nodeid:str,tag:str):
     """
     with the current nodeid, add a tag.  Tags are added one at a time
     Args:
@@ -32,19 +32,16 @@ def addTagtoNode(nodeid,tag):
     Returns:'
         confirmation that tag has been added.  a simple yes or no
     """
-    p
-    print("\nAadding tag "+ tag)
 
-    url = os.getenv("BASE_URL") + f"/alfresco/api/-default-/public/alfresco/versions/1/nodes/{nodeid}/tags"
+    url = os.getenv("BASE_URL") + f"""/alfresco/api/-default-/public/alfresco/versions/1/nodes/{nodeid}/tags"""
     
-    body = f"""
-{
+    body = f"""{{
   "tag": "{tag}"
-}
-
-"""
-    response = runQuery('post',url,)
-    return json.dumps(response, indent=2)
+}}"""
+    
+    print("attempt to run addtag with url->"+url+"and body->"+body)
+    temp = requests.post(url,data=body,auth = (os.getenv("user"), os.getenv("pass"))).text
+    return temp
 
 @mcp.tool()
 def getAlfrescoVersion():
