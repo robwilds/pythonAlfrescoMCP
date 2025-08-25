@@ -5,6 +5,7 @@
 **/venv/
 **/env/
 **/.env
+.env
 
 # Version control and editor-specific files
 .git/

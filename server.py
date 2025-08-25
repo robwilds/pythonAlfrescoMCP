@@ -3,4 +3,4 @@
 from fastmcp import FastMCP
 # This is the shared MCP server instance
 
-mcp = FastMCP("Alfresco MCP Server by RobW")
+mcp = FastMCP("Alfresco MCP Server by RobW",host="0.0.0.0")

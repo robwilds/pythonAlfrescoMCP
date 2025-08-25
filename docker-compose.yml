@@ -4,13 +4,6 @@ services:
     image: wildsdocker/wildsalfmcp:v1
     ports:
       - 8000:8000
-    deploy:
-      resources:
-        limits:
-          cpus: "2"
-          memory: 0G
-        reservations:
-          memory: 0G
     environment:
       BASE_URL: "http://localhost:8080"
       user: "admin"
