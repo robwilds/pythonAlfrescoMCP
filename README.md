@@ -14,7 +14,7 @@ This project was created using this guide: https://medium.com/data-engineering-w
 
 Running pip3 install -r requirements.txt will get the required sister modules installed.
 
-use the .envtemplate file to create a .env file.  The BASE_URL is the url to your Alfresco install.
+use the .envtemplate file to create a .env file. The BASE_URL is the url to your Alfresco install.
 
 Now run with python3 main.py. You will see a confirmation that the MCP server is running.
 
@@ -33,7 +33,7 @@ If you are using Claude desktop, add the following to the claude config file (vi
       "command": "npx",
       "args": [
       "-y",
-      "mcp-remote", "http://localhost:8000/sse"]
+      "mcp-remote", "http://localhost:8000/mcp"]
     }
   }
 }
