@@ -18,6 +18,7 @@ openpyxl==3.1.5
 #openai
 #einops==0.8.0
 #timm==1.0.12
+tabulate
 tzdata==2025.1
 python-dateutil==2.9.0.post0
 #tqdm==4.67.1
