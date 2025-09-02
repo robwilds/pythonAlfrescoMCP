@@ -24,13 +24,13 @@ appEntryUser = []
 cols = {0: 'nodeID',1:'auditEntryID',2:'entryDate',3:'details',4:'user'}
 
 @mcp.tool()
-def addTagtoNode(nodeid:str,tag:str):
+def addTagtoNode(nodeid:str,tag:str) -> str:
     """
-    with the current nodeid, add a tag.  Tags are added one at a time
+    use the provided id and tag to add a tag to a ndoe in Alfresco.  Tags are added one at a time
     Args:
-        nodeid,tag
-    Returns:'
-        confirmation that tag has been added.  a simple yes or no
+        nodeid as string and tag as string
+    Returns:
+        confirmation that tag has been added as json
     """
 
     url = os.getenv("BASE_URL") + f"""/alfresco/api/-default-/public/alfresco/versions/1/nodes/{nodeid}/tags"""
@@ -46,7 +46,7 @@ def addTagtoNode(nodeid:str,tag:str):
 @mcp.tool()
 def getAlfrescoVersion():
     """
-    Find the current version of Alfresco Server.
+    retrieve the current version of Alfresco Server.
     Args:
         none
     Returns:
