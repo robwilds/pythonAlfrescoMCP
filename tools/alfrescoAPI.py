@@ -24,6 +24,26 @@ appEntryUser = []
 cols = {0: 'nodeID',1:'auditEntryID',2:'entryDate',3:'details',4:'user'}
 
 @mcp.tool()
+def lockNode(nodeid:str)-> str:
+    """
+    use the provided id to lock a file.  The files will be locked for a maximum of 5 minutes
+    Args:
+        nodeid as string
+    Returns:
+        confirmation that the node has been locked as json response
+    """
+    url = os.getenv("BASE_URL") + f"""/alfresco/api/-default-/public/alfresco/versions/1/nodes/{nodeid}/lock"""
+    
+    body = """{
+   "timeToExpire": "300",
+  "type": "ALLOW_OWNER_CHANGES",
+  "lifetime": "PERSISTENT"
+}"""
+    
+    temp = requests.post(url,data=body,auth = (os.getenv("user"), os.getenv("pass"))).text
+    return temp
+
+
 def addTagtoNode(nodeid:str,tag:str) -> str:
     """
     use the provided id and tag to add a tag to a ndoe in Alfresco.  Tags are added one at a time
