@@ -23,6 +23,20 @@ appEntryUser = []
 
 cols = {0: 'nodeID',1:'auditEntryID',2:'entryDate',3:'details',4:'user'}
 
+# @mcp.tool()
+# def startWorkflow(type:str,assignee:str)->str:
+#     """
+#     This tool will start a review workflow within Alfresco.  The workflow type is the description of the request
+#     for the workflow.  The assignee is who will receive the workflow.  If no assignee provided, the default is user: demo
+
+#     Args:
+#         type as string
+#         assignee as string (optional)
+#     Returns:
+#         returns confirmation that the workflow has been started
+#     """
+#     return "nothing"
+
 @mcp.tool()
 def lockNode(nodeid:str)-> str:
     """
