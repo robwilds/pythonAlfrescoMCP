@@ -1,14 +1,17 @@
 # syntax=docker/dockerfile:1
 
-FROM python:latest
+FROM nginx:latest
 
 
 WORKDIR /python-docker
 
 COPY . .
 
-RUN apt update && apt-get install nano && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt-get install -y nano && apt-get install -y python3 python3-pip && rm -rf /var/lib/apt/lists/*
 
-# here need to put the static.json in a temp folder
-CMD pip3 install -r requirements.txt --no-cache-dir --break-system-packages; python3 main.py
-# need to check to see if static.json exists in static folder...if not copy from temp folder
+RUN pip3 install -r requirements.txt --no-cache-dir --break-system-packages;
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+

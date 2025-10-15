@@ -7,6 +7,10 @@ __pycache__/*
 *.py[cod]
 *$py.class
 
+# ssl certificates
+*.crt
+*.csr
+*.key
 # OS generated files #
 ######################
 .DS_Store
