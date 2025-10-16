@@ -3,7 +3,7 @@ services:
   wildsalfmcp:
     image: wildsdocker/wildsalfmcp:v2
     ports:
-      - 8882:8000
+      - 8000:8000
       - 8443:443
       - 8880:80
     environment:
@@ -11,8 +11,8 @@ services:
       user: "demo"
       pass: "demo"
       FASTMCP_HOST: 0.0.0.0
-    volumes:
-      - ./data/services/wildsalfmcp/index.html:/usr/share/nginx/html/index.html
-      - ./data/services/wildsalfmcp/nginx.conf:/etc/nginx/nginx.conf
-      - ./data/services/wildsalfmcp/server.crt:/etc/nginx/server.crt
-      - ./data/services/wildsalfmcp/server.key:/etc/nginx/server.key
+    #volumes:
+    #- ./data/services/wildsalfmcp/index.html:/usr/share/nginx/html/index.html
+    #- ./data/services/wildsalfmcp/nginx.conf:/etc/nginx/nginx.conf
+    #- ./data/services/wildsalfmcp/server.crt:/etc/nginx/server.crt
+    #- ./data/services/wildsalfmcp/server.key:/etc/nginx/server.key

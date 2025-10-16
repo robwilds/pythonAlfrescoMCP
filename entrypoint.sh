@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# create ssl certs now
+bash /python-docker/utils/create_cert.sh
+ 
 # Start Nginx in the background
 nginx &
 
