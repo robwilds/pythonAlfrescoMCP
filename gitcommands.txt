@@ -1,0 +1,5 @@
+# to merge whatever working branch to main
+git checkout main
+git pull origin main
+git merge <whatever>
+git push origin main
