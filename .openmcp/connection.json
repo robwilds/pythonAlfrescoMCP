@@ -1,0 +1,30 @@
+{
+  "items": [
+    [
+      {
+        "connectionType": "STREAMABLE_HTTP",
+        "command": "",
+        "args": [],
+        "url": "https://rwildsmcp-elb.sales-demohyland.com/mcp",
+        "cwd": "",
+        "oauth": "",
+        "clientName": "openmcp.connect.STREAMABLE_HTTP",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/robert.wilds",
+          "LOGNAME": "robert.wilds",
+          "PATH": "/Users/robert.wilds/documents/software/apache-maven-3.9.9/bin:/Library/Java/JavaVirtualMachines/jdk-17jdk/Contents/Home/bin:/Library/Frameworks/Python.framework/Versions/3.13/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Applications/VMware Fusion.app/Contents/Public",
+          "SHELL": "/bin/zsh",
+          "TERM": "",
+          "USER": "robert.wilds"
+        },
+        "serverInfo": {
+          "name": "Alfresco MCP Server by RobW",
+          "version": "1.17.0"
+        },
+        "name": "Alfresco MCP Server by RobW",
+        "version": "1.17.0"
+      }
+    ]
+  ]
+}

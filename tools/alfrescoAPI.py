@@ -6,6 +6,7 @@ from server import mcp
 from datetime import datetime,timezone
 from zoneinfo import ZoneInfo
 from utils.queryAlfAPI import runQuery
+from datetime import datetime
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -36,6 +37,17 @@ cols = {0: 'nodeID',1:'auditEntryID',2:'entryDate',3:'details',4:'user'}
 #         returns confirmation that the workflow has been started
 #     """
 #     return "nothing"
+
+@mcp.tool()
+def get_current_datetime():
+    """
+    return the date and time
+    """
+    current_date_time = get_current_datetime()
+
+    print(f"The current date and time are: {current_date_time}")
+    return datetime.now()
+
 
 @mcp.tool()
 def lockNode(nodeid:str)-> str:
@@ -84,7 +96,7 @@ def getAlfrescoVersion():
     Args:
         none
     Returns:
-        Markdown containing the version of Alfresco Server.
+        json containing the version of Alfresco Server.
     """
     url = os.getenv("BASE_URL") + "/alfresco/service/api/server"
     response = runQuery('get', url, '', os.getenv("user"), os.getenv("pass"))

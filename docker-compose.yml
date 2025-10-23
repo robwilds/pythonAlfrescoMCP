@@ -11,8 +11,15 @@ services:
       user: "demo"
       pass: "demo"
       FASTMCP_HOST: 0.0.0.0
-    #volumes:
-    #- ./data/services/wildsalfmcp/index.html:/usr/share/nginx/html/index.html
-    #- ./data/services/wildsalfmcp/nginx.conf:/etc/nginx/nginx.conf
-    #- ./data/services/wildsalfmcp/server.crt:/etc/nginx/server.crt
-    #- ./data/services/wildsalfmcp/server.key:/etc/nginx/server.key
+    volumes:
+      - mcpnginxdata:/usr/share/nginx
+      - mcpnginxconf:/etc/nginx\
+      - mcppythondata:/python-docker
+    #  - ./data/services/wildsalfmcp/index.html:/usr/share/nginx/html/index.html
+    #  - ./data/services/wildsalfmcp/nginx.conf:/etc/nginx/nginx.conf
+    #  - ./data/services/wildsalfmcp/server.crt:/etc/nginx/server.crt
+    #  - ./data/services/wildsalfmcp/server.key:/etc/nginx/server.key
+volumes:
+  mcpnginxdata:
+  mcpnginxconf:
+  mcppythondata:

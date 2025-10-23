@@ -1,0 +1,25 @@
+{
+  "clientId": "3c248cd2-8cd2-548cd295bc8-848cd295bc8a784-8a784d10",
+  "currentIndex": 0,
+  "tabs": [
+    {
+      "name": "Tools",
+      "icon": "icon-tool",
+      "type": "blank",
+      "componentIndex": 2,
+      "storage": {
+        "activeNames": [
+          0
+        ],
+        "autoDetectDiagram": {
+          "edges": [],
+          "views": []
+        },
+        "formData": {
+          "auditApp": ""
+        },
+        "currentToolName": "auditInfo"
+      }
+    }
+  ]
+}

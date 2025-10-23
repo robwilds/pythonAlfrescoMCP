@@ -1,3 +1,7 @@
+#ignore specific files
+*/tylerConn.py
+tylerConn.py
+
 /assets
 /static/*.jpg
 # Byte-compiled / optimized / DLL files
