@@ -90,6 +90,26 @@ def addTagtoNode(nodeid:str,tag:str) -> str:
     return temp
 
 @mcp.tool()
+def addCommentToNode(nodeid:str,comment:str) -> str:
+    """
+    use the provided id or nodeid and comment to add a comment to a nodeid in alfresco.  Comments are added one at a time
+    Args:
+        nodeid as string and comment as string
+    Returns:
+        confirmation that the comment has been added as json
+    """
+
+    url = os.getenv("BASE_URL") + f"""/alfresco/api/-default-/public/alfresco/versions/1/nodes/{nodeid}/comments"""
+    
+    body = f"""{{
+  "content": "{comment}"
+}}"""
+    
+    print("attempt to run addtag with url->"+url+"and body->"+body)
+    temp = requests.post(url,data=body,auth = (os.getenv("user"), os.getenv("pass"))).text
+    return temp
+
+@mcp.tool()
 def getAlfrescoVersion():
     """
     retrieve the current version of Alfresco Server.
