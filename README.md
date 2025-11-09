@@ -51,11 +51,11 @@ Clone the entire aforementioned repo then run docker compose up -d
 
 # Tools you can use
 
-1. audit information based on nodeid
-2. comments for a node based on nodeid
-3. the audit apps that are configured
-4. fetch document info by name...this will return nodeid
-5. current alfresco version
-6. get tag information for a document based on nodeid
+1. Audit information based on nodeid
+2. Comments for a node based on nodeid
+3. The audit apps that are configured
+4. Fetch document info by name...this will return nodeid
+5. Current alfresco version
+6. Get tag information for a document based on nodeid
 7. Add a tag to a node
-8. show all comments for a nodeid
+8. Add comments to a node
