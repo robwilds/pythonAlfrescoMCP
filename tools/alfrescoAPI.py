@@ -69,7 +69,7 @@ def lockNode(nodeid:str)-> str:
     temp = requests.post(url,data=body,auth = (os.getenv("user"), os.getenv("pass"))).text
     return temp
 
-
+@mcp.tool()
 def addTagtoNode(nodeid:str,tag:str) -> str:
     """
     use the provided id and tag to add a tag to a ndoe in Alfresco.  Tags are added one at a time
