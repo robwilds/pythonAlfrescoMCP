@@ -187,7 +187,7 @@ def getAuditApps() -> str:
     Args:
         none
     Returns:
-        A JSON string containing the audit apps with enabled status.
+        A JSON string containing the audit apps with status.
     """
 
     url = os.getenv("BASE_URL") + "/alfresco/api/-default-/public/alfresco/versions/1/audit-applications"
@@ -195,18 +195,6 @@ def getAuditApps() -> str:
     temp4 = requests.get(url,auth = (os.getenv("user"), os.getenv("pass"))).text
     print(temp4)
     return temp4
-
-
-
-    date_format = "%Y-%m-%dT%H:%M:%S.%f+0000"
-    local_tz = ZoneInfo("America/New_York")
-    
-    newDate = datetime.strptime(date,date_format)
-    #print ('inside dateprocessor: '+str(newDate)) #debug
-
-    print('local time zone '+ str(newDate.astimezone(local_tz)))
-
-    return str(newDate.astimezone(local_tz))
 
 @mcp.tool()
 def auditForNode(nodeid):
