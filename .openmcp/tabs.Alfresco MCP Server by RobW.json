@@ -1,5 +1,5 @@
 {
-  "clientId": "3c248cd2-8cd2-548cd295bc8-848cd295bc8a784-8a784d10",
+  "clientId": "0c8ae617-e617-5ae617faf30-8ae617faf30683d-0683d051",
   "currentIndex": 0,
   "tabs": [
     {
@@ -16,9 +16,21 @@
           "views": []
         },
         "formData": {
-          "auditApp": ""
+          "nodeid": "1a0b110f-1e09-4ca2-b367-fe25e4964a4e"
         },
-        "currentToolName": "auditInfo"
+        "currentToolName": "getComments",
+        "lastToolCallResponse": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"list\":{\"pagination\":{\"count\":1,\"hasMoreItems\":false,\"totalItems\":1,\"skipCount\":0,\"maxItems\":100},\"entries\":[{\"entry\":{\"createdAt\":\"2026-02-22T11:02:45.568+0000\",\"createdBy\":{\"enabled\":true,\"firstName\":\"Demo\",\"lastName\":\"User\",\"displayName\":\"Demo User\",\"email\":\"demo@example.com\",\"emailNotificationsEnabled\":true,\"company\":{},\"id\":\"demo\"},\"edited\":false,\"modifiedAt\":\"2026-02-22T11:02:45.568+0000\",\"canEdit\":true,\"modifiedBy\":{\"enabled\":true,\"firstName\":\"Demo\",\"lastName\":\"User\",\"displayName\":\"Demo User\",\"email\":\"demo@example.com\",\"emailNotificationsEnabled\":true,\"company\":{},\"id\":\"demo\"},\"canDelete\":true,\"id\":\"e91bf3fc-71c7-4a86-9bf3-fc71c76a86b6\",\"content\":\"<p>this is my comment</p>\"}}]}}"
+            }
+          ],
+          "structuredContent": {
+            "result": "{\"list\":{\"pagination\":{\"count\":1,\"hasMoreItems\":false,\"totalItems\":1,\"skipCount\":0,\"maxItems\":100},\"entries\":[{\"entry\":{\"createdAt\":\"2026-02-22T11:02:45.568+0000\",\"createdBy\":{\"enabled\":true,\"firstName\":\"Demo\",\"lastName\":\"User\",\"displayName\":\"Demo User\",\"email\":\"demo@example.com\",\"emailNotificationsEnabled\":true,\"company\":{},\"id\":\"demo\"},\"edited\":false,\"modifiedAt\":\"2026-02-22T11:02:45.568+0000\",\"canEdit\":true,\"modifiedBy\":{\"enabled\":true,\"firstName\":\"Demo\",\"lastName\":\"User\",\"displayName\":\"Demo User\",\"email\":\"demo@example.com\",\"emailNotificationsEnabled\":true,\"company\":{},\"id\":\"demo\"},\"canDelete\":true,\"id\":\"e91bf3fc-71c7-4a86-9bf3-fc71c76a86b6\",\"content\":\"<p>this is my comment</p>\"}}]}}"
+          },
+          "isError": false
+        }
       }
     }
   ]
