@@ -1,6 +1,9 @@
-docker rmi wildsdocker/wildsalfmcp:v2 -f
+docker rmi wildsdocker/wildsalfmcp:v3 -f
 
-docker buildx build --load --platform=linux/amd64,linux/arm64 -t wildsdocker/wildsalfmcp:v2 .
+docker buildx build --load --platform=linux/amd64,linux/arm64 -t wildsdocker/wildsalfmcp:v3 .
+
+wildsdocker/wildsalfmcp:v3
+
 
 # run with docker compose
 docker compose up
@@ -8,9 +11,9 @@ docker compose up
 # run without connect to files
 docker run -d -it -p 8000:8000 -p 8443:443 -p 8880:80 \
 --name wildsalfmcp \
-wildsdocker/wildsalfmcp:v2
 
-docker push wildsdocker/wildsalfmcp:v2
+
+docker push wildsdocker/wildsalfmcp:v3
 
 
 
